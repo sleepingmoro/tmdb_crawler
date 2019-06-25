@@ -1,0 +1,10 @@
+<h1>Movies#index</h1>
+<p>Find me in app/views/movies/index.html.erb</p>
+<table>
+  <tr>
+<% @movies.each do |movie| %>
+  <td><%= movie.id %></td>
+  <td><%= movie.title %></td>
+<% end %>
+  </tr>
+</table>
