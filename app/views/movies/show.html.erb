@@ -1,0 +1,16 @@
+<h1>Movies#show</h1>
+<p>Find me in app/views/people/show.html.erb</p>
+<a href="/movies">movies</a>
+<%= @movie.title %>
+<br>
+<%= @movie.desc %>
+<table>
+  <% @movie.credits.each do |credit| %>
+    <tr>
+      <td><%= credit.id %></td>
+      <td><%= credit.character %></td>
+      <td><%= credit.person.name %></td>
+      <td><a href="/people/<%= credit.person.id %>">상세정보</a></td>
+    </tr>
+  <% end %>
+</table>
