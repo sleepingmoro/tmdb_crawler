@@ -1,0 +1,21 @@
+<h1>People#index</h1>
+<p>Find me in app/views/people/index.html.erb</p>
+<a href="/movies">movies</a>
+<table>
+    <% @people.each do |person| %>
+      <tr>
+        <td><%= person.id %></td>
+        <td><%= person.name %></td>
+        <td><%= person.birthday %></td>
+        <td>
+          <% if person.gender == 1 %>
+            <%= "남성" %>
+          <% elsif person.gender == 2 %>
+            <%= "여성" %>
+          <% else %>
+            <%= "미상" %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+</table>
