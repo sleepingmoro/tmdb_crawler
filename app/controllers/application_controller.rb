@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
     # Movie 있으면 아무것도 안함. 없으면 추가
     movie_res = get_data('movie', movie_id)
 
-    movie = Movie.where(tmdb_id: movie_res['id'])
+    movie = Movie.where(tmdb_id: movie_res['id']).last
     return if movie.present?
 
     new_movie = Movie.new(
@@ -27,7 +27,7 @@ class ApplicationController < ActionController::Base
     credit_res = get_data('credit', movie_id)
 
     credit_res['cast'].each do |cast|
-      person = Person.where(tmdb_id: cast['id'])
+      person = Person.where(tmdb_id: cast['id']).last
 
       # Person이 존재하지 않으면 추가해준다.
       if person.blank?
