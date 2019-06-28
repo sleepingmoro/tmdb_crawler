@@ -1,24 +1,32 @@
-# README
+# TEST 방법
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+PostMan으로 쉽게 테스트하기 위해 API형태로 만들어져 있습니다.
+추후 스크립트 방식으로 변경 예정이었으나 아직 수정하지 못했습니다.
 
-Things you may want to cover:
+코드에 수정해야 할 부분이 있습니다.
+추후 스크립트 방식으로 구현할 때 API key를 파라미터로 받도록 하려고 했으나,
+현재는 간편한 테스트를 위해 하드코딩해둔 상태입니다.
+그러므로 app/controllers/application_controller.rb 91번째 line을
+수정하여야 합니다.
+* api_key = 'api_key=#' : # 부분에 API key를 넣어주세요.
+* 예) api_key = 'api_key=abcdef1234'
 
-* Ruby version
+API url
+* 영화 크롤 GET /test/:id
+* 드라마 크롤 GET /test_tv/:id
 
-* System dependencies
+모델간의 관계 확인을 위해 등장인물이 겹치는 영상 크롤을 추천드립니다.
+id 예시를 몇가지 첨부합니다.
 
-* Configuration
+* 영화 - 해리포터 시리즈 id : 671, 672, 673, 674
+* 드라마 - 아직 미완성입니다.
 
-* Database creation
+간단한 확인용 뷰는 Movie, People만 구현되어 있습니다.
 
-* Database initialization
+url을 첨부드립니다.
+* /movies 크롤한 영화 리스트
+* /movies/:id 출연진을 포함한 영화 상세정보
+* /people 크롤한 배우 리스트
+* /people/:id 출연작을 포함한 배우의 상세정보
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+아직 에러핸들링이 되지 않아 데이터가 없을 시 에러페이지로 연결될 수 있습니다.
